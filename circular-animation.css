@@ -64,6 +64,8 @@ body {
     animation: progress-fill 2s linear forwards;
     width: 150px;
     height: 150px;  
+    stroke-width:20px;
+    fill:none;
 }
 
 @keyframes progress-fill {
