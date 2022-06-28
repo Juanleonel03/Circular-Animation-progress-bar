@@ -1,0 +1,87 @@
+* {
+    --red: #810707;
+    --yellow: #D4ff00;
+    --light-green: #5d8734;
+    --green: #116b06;
+    --white: #fff;
+    --outline: rgba(209, 197, 252, .5);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(13, 63, 82, 1);
+}
+
+.animation {
+    margin: 200px auto 0 auto;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+}
+
+.progress {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    outline: 1px solid var(--outline);
+    outline-offset: -1px;
+
+}
+
+.progress::after,
+.hundred {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.progress::after {
+    content: "";
+    width: 110px;
+    height: 110px;
+    border-radius: inherit;
+    outline: inherit;
+}
+
+.hundred {
+    font-size: 21px;
+    font-weight: bold;
+    color: var(--white);
+}
+
+.circle {
+    stroke-dasharray: 410;
+    stroke-dashoffset: 410;
+    transform: rotate(-90deg);
+    animation: progress-fill 2s linear forwards;
+    width: 150px;
+    height: 150px;  
+}
+
+@keyframes progress-fill {
+    19% {
+        stroke: var(--red);
+        transition: .5s;
+    }
+
+    35% {
+        stroke: var(--yellow);
+    }
+
+    70% {
+        stroke: var(--light-green);
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+        stroke: var(--green);
+    }
+}
